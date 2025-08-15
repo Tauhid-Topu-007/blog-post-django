@@ -1,0 +1,31 @@
+{% extends 'home/base.html' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block blogactive %}active{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <article class="blog-post">
+
+                <h1 class="display-4 mb-3">{{ post.title }}</h1>
+                <p class="text-muted">
+                    Published on {{ post.timeStamp|date:"F j, Y" }} by 
+                    <a href="/about" class="text-decoration-none">{{ post.author }}</a>
+                </p>
+
+                <hr>
+
+                <div class="post-content mb-5" style="font-size: 1.1rem; line-height: 1.8;">
+                    {{ post.content|linebreaks }}
+                </div>
+
+                <a href="/blog/" class="btn btn-outline-primary">← Back to Blog</a>
+            </article>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

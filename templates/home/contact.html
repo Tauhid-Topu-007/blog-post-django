@@ -1,0 +1,52 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Contact{% endblock %}
+{% block name %}Contact{% endblock %}
+{% block contactactive %}active{% endblock %}
+
+{% block body %}
+<div class="row justify-content-center my-5">
+  <div class="col-lg-7 col-md-9">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h3 class="mb-0">Contact Us</h3>
+      </div>
+      <div class="card-body">
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <strong>Message: </strong>{{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+
+        <form method="post" action="{% url 'contact' %}">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone No</label>
+            <input type="phone" class="form-control" id="phone" name="phone" placeholder="Optional">
+          </div>
+
+          <div class="mb-3">
+            <label for="content" class="form-label">Message</label>
+            <textarea class="form-control" id="content" name="content" rows="4" placeholder="Describe your issue..." required></textarea>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

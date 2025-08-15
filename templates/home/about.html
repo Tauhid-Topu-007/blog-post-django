@@ -1,0 +1,58 @@
+{% extends 'home/base.html' %}
+
+{% block title %}About Us{% endblock %}
+{% block name %}About Us{% endblock %}
+{% block aboutactive %}active{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <div class="row align-items-center">
+        <div class="col-md-6">
+            <h1 class="display-4 mb-4">About Us</h1>
+            <p class="lead">
+                Welcome to our blog! We are passionate about sharing insights, tutorials, 
+                and stories that inspire our readers. Our team is dedicated to providing 
+                high-quality content on topics ranging from technology, programming, to 
+                lifestyle and beyond.
+            </p>
+            <p>
+                Our mission is to educate, entertain, and connect with our community. 
+                Whether you’re here to learn something new or just browse for inspiration, 
+                we hope you enjoy your stay!
+            </p>
+            <a href="/" class="btn btn-primary btn-lg mt-3">Go to Home</a>
+        </div>
+        <div class="col-md-6">
+            <img src="https://plus.unsplash.com/premium_photo-1714618828448-abf8732500c6?q=80&w=2100&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                 alt="About Us Image" class="img-fluid rounded shadow">
+        </div>
+    </div>
+
+    <div class="row mt-5 text-center">
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <h5 class="card-title">Our Vision</h5>
+                    <p class="card-text">To create a community where knowledge and creativity thrive together.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <h5 class="card-title">Our Mission</h5>
+                    <p class="card-text">To deliver valuable, engaging, and inspiring content for our readers worldwide.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm p-3">
+                <div class="card-body">
+                    <h5 class="card-title">Our Values</h5>
+                    <p class="card-text">Creativity, Learning, Community, and Integrity are at the heart of everything we do.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Blog Home{% endblock %}
+{% block blogactive %}active{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+    {% if allPosts %}
+        <div class="row g-4">
+            {% for post in allPosts %}
+            <div class="col-md-6 col-lg-4">
+                <div class="card h-100 shadow-sm">
+                    {% comment %} Optional image placeholder {% endcomment %}
+                    {# <img src="https://via.placeholder.com/400x200" class="card-img-top" alt="{{ post.title }}"> #}
+                    
+                    <div class="card-body d-flex flex-column">
+                        <small class="text-muted mb-2">By {{ post.author }} on {{ post.timeStamp|date:"F j, Y" }}</small>
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text text-truncate">{{ post.content|truncatechars:150 }}</p>
+                        <a href="{% url 'blogpost' post.slug %}" class="btn btn-primary mt-auto">Read More</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-info">
+            No blog posts found.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

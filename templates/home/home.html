@@ -1,0 +1,40 @@
+{% extends 'home/base.html' %}
+
+{% block title %}Home{% endblock %}
+{% block homeactive %}active{% endblock %}
+
+{% block body %}
+<div class="container my-4">
+
+    <!-- Welcome Card -->
+    <div class="card mb-4 shadow-sm">
+        <div class="card-body text-center">
+            <h1 class="card-title display-5">Welcome to Code Blog</h1>
+            <p class="card-text lead">Read our latest articles, tutorials, and coding tips. Stay updated and improve your skills!</p>
+            <a href="/blog/" class="btn btn-primary btn-lg mt-2">Explore Blog</a>
+        </div>
+    </div>
+
+    <!-- Featured Posts Section -->
+    {% if allPosts %}
+    <h3 class="mb-3">Latest Posts</h3>
+    <div class="row">
+        {% for post in allPosts|slice:":3" %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title">{{ post.title }}</h5>
+                    <p class="card-text text-truncate">{{ post.content|truncatechars:100 }}</p>
+                    <p class="mt-auto text-muted small">By {{ post.author }} on {{ post.timeStamp|date:"F j, Y" }}</p>
+                    <a href="{% url 'blogpost' post.slug %}" class="btn btn-outline-primary mt-2">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p class="text-muted">No posts available yet. Check back soon!</p>
+    {% endif %}
+
+</div>
+{% endblock %}
